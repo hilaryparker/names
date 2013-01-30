@@ -1,4 +1,4 @@
-setwd("C:/Users/Hilary/Dropbox/names")
+setwd("C:/Users/Hilary/GitHub/names")
 library('ProjectTemplate')
 load.project()
 
@@ -15,9 +15,9 @@ loss<-(1-round(rel.risk[bigdropsind],2))*100
 yearlost<-year.ind[bigdropsind[,2]+1]
 bigdrops<-as.data.frame(cbind(name=rownames(bigdropsind),loss,yearlost))
 
-setwd("C:/Users/Hilary/Dropbox/names/reports")
+setwd("C:/Users/Hilary/GitHub/names/reports")
 write.table(bigdrops,file="bigdrops.csv",row.names=FALSE,sep=",")
-setwd("C:/Users/Hilary/Dropbox/names")
+setwd("C:/Users/Hilary/GitHub/names")
 
 #compare to boys#
 
@@ -29,7 +29,6 @@ which(rel.risk.b<0.33,arr.ind=TRUE)->bigdropsind.b
 loss.b<-(1-round(rel.risk.b[bigdropsind.b],2))*100
 yearlost.b<-year.ind[bigdropsind.b[,2]+1]
 bigdrops.b<-as.data.frame(cbind(name=rownames(bigdropsind.b),loss.b,yearlost.b))
-
 
 
 # create graph of these names #
@@ -50,7 +49,7 @@ plotname<-function(ind,offx,offy){
 
 # create graph #
 
-setwd("C:/Users/Hilary/Dropbox/names/graphs")
+setwd("C:/Users/Hilary/GitHub/names/graphs")
 png(file="names.png",width = 480*2, height = 480)
 plot(x=year.ind,y=female.percents["Hilary",],type="l",ylim=c(0,0.2),xlab="Year",ylab="Percent",
 	 main="Percent of baby girls given a name over time for the 14 most poisoned names")
@@ -85,7 +84,7 @@ nonflashind<-rowSums((!is.na(female.percents[bigdropsind[,1],])))>20
 bigdropsind.non<-bigdropsind*nonflashind
 bigdropsind.non<-bigdropsind.non[bigdropsind.non[,1]!=0,]
 
-setwd("C:/Users/Hilary/Dropbox/names/graphs")
+setwd("C:/Users/Hilary/GitHub/names/graphs")
 png(file="names_trimmed.png",width = 480*2, height = 480)
 
 plot(x=year.ind,y=female.percents["Hilary",],type="l",ylim=c(0,0.1),xlab="Year",ylab="Percent",
@@ -119,7 +118,7 @@ len<-dim(bigdropsind.non)[1]
 cols <- pal(len)
 
 
-setwd("C:/Users/Hilary/Dropbox/names/graphs")
+setwd("C:/Users/Hilary/GitHub/names/graphs")
 png(file="more_names_trimmed.png",width = 480*2, height = 480)
 plot(x=year.ind,y=female.percents["Hilary",],type="l",ylim=c(0,0.35),xlab="Year",ylab="Percent",
 	 main="Percent of baby girls given a name over time for the 39 most poisoned names, controlling for fads")
@@ -136,4 +135,33 @@ text(x=1954,y=0.21,col=cols[18],labels="Marian",font=2)
 # Christin
 text(x=1993,y=-0.001,col=cols[19],labels="Christin",font=2)
 
+dev.off()
+
+
+
+# Adolph and Adolf
+
+#display.brewer.all()
+colors <- brewer.pal(8, "Dark2")
+pal <- colorRampPalette(colors)
+cols <- pal(5)
+
+setwd("C:/Users/Hilary/GitHub/names/graphs")
+png(file="names_adolf.png",width = 480*2, height = 480)
+plot(x=year.ind,y=male.percents["Adolf",],type="l",ylim=c(0,0.15),col=cols[2],lwd=3,
+	 xlab="Year",ylab="Percent",
+	 main="Percent of babies named Adolf, Adolph, Hilary or Hillary over time")
+lines(x=year.ind,y=male.percents["Adolph",],col=cols[1],lwd=3)
+lines(x=year.ind,y=female.percents["Hilary",],col=cols[3],lwd=3)
+lines(x=year.ind,y=female.percents["Hillary",],col=cols[4],lwd=3)
+
+
+# Adolf
+text(x=1919,y=0.01,col=cols[2],labels="Adolf",font=2)
+# Adolph
+text(x=1937,y=0.025,col=cols[1],labels="Adolph",font=2)
+# Hilary
+text(x=1997,y=0.06,col=cols[3],labels="Hilary",font=2)
+# Hillary
+text(x=1995,y=0.13,col=cols[4],labels="Hillary",font=2)
 dev.off()
