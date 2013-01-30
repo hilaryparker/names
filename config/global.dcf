@@ -1,0 +1,8 @@
+data_loading: on
+cache_loading: on
+munging: off
+logging: off
+load_libraries: on
+libraries: RCurl, XML, RColorBrewer
+as_factors: on
+data_tables: off

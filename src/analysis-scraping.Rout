@@ -1,0 +1,62 @@
+
+R version 2.15.2 Patched (2012-10-28 r61038) -- "Trick or Treat"
+Copyright (C) 2012 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> setwd("/home/bst/student/hiparker/names")
+> library('ProjectTemplate')
+Loading required package: testthat
+> load.project()
+Loading project configuration
+Autoloading helper functions
+ Running helper script: getNames.R
+Autoloading packages
+ Loading package: RCurl
+Loading required package: bitops
+ Loading package: XML
+Autoloading data
+ Loading cached data set: female.nums
+ Loading cached data set: female.percents
+ Loading cached data set: female.ranks
+ Loading cached data set: male.nums
+ Loading cached data set: male.percents
+ Loading cached data set: male.ranks
+Munging data
+ Running preprocessing script: 01-A-scrapingdata.R
+> 
+> 
+> #tmp1
+> 
+> #dim(tmp1)
+> #tmp2<-tmp1[,-1]
+> #for(i in 1:dim(tmp1)[2]-1){
+> #  tmp2[,i]<-tmp1[,i+1]/tmp1[,i]
+> #}
+> #min(tmp2,na.rm=TRUE)
+> #which(tmp2<0.5,arr.ind=TRUE)
+> #tmp2
+> 
+> #?lapply
+> 
+> #names.mat["Hilary",]
+> #names.mat["Hillary",]
+> 
+> 
+> proc.time()
+    user   system  elapsed 
+ 623.337    0.805 1249.528 
