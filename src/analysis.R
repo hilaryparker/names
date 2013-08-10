@@ -165,3 +165,13 @@ text(x=1997,y=0.06,col=cols[3],labels="Hilary",font=2)
 # Hillary
 text(x=1995,y=0.13,col=cols[4],labels="Hillary",font=2)
 dev.off()
+
+
+## Analysis of the name Lolita ##
+
+setwd("./graphs")
+png(file="names_Lolita.png",width = 480*2, height = 480)
+plot(x=year.ind,y=female.percents["Lolita",],type="l",ylim=c(0,0.03),xlab="Year",ylab="Percent",
+     main="Percent of baby girls given the name Lolita",col=cols[3],lwd=3)
+text(x=1954,y=0.013,col=cols[3],labels="Lolita",font=2)
+dev.off()
